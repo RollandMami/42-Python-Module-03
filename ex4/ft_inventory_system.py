@@ -20,7 +20,14 @@ def ft_inventory_system(args: list) -> None:
     if (len(args) == 1):
         print("No items in inventory.")
         return
-    inventory: set = set(args)
+    for i in range(1, len(args)):
+        try:
+            key, value = args[i].split(":")
+            inventory_keys.append(key)
+            inventory_values.append(int(value))
+        except ValueError:
+            print(f"Invalid format for item: {args[i]}. Expected format: key:value")
+    inventory = dict(zip(inventory_keys, inventory_values))
     print(f"Inventory items: {inventory}")
     print(f"Total unique items: {len(inventory)}")
-    print(f"Sorted inventory: {sorted(inventory)}")
+    print(f"Sorted inventory: {sorted(inventory.keys())}")
