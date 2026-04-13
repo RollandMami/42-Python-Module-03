@@ -12,12 +12,13 @@
 
 import random
 
-ACHIVEMENTS: set = {'Crafting Genius','Strategist','World Savior',
-                    'Speed Runner','Survivor','Master Explorer',
-                    'Treasure Hunter','Unstoppable','First Steps',
-                    'Collector Supreme','Untouchable','Sharp Mind',
+ACHIVEMENTS: set = {'Crafting Genius', 'Strategist', 'World Savior',
+                    'Speed Runner', 'Survivor', 'Master Explorer',
+                    'Treasure Hunter', 'Unstoppable', 'First Steps',
+                    'Collector Supreme', 'Untouchable', 'Sharp Mind',
                     'Boss Slayer'
                     }
+
 
 def gen_player_achievements() -> set:
     number_of_achievements: int = random.randint(1, len(ACHIVEMENTS) - 1)
@@ -38,7 +39,7 @@ def ft_achievement_tracker() -> None:
     print(f"\nAll distinct achievements: \
 {set.union(Alice, Bob, Charlie, Dylan)}")
     print(f"\nCommon achievements: \
-{set.intersection(Alice, Bob, Charlie,Dylan)}")
+{set.intersection(Alice, Bob, Charlie, Dylan)}")
     print(f"\nOnly Alice: {Alice.difference(Bob, Charlie, Dylan)}")
     print(f"Only Bob: {Bob.difference(Alice, Charlie, Dylan)}")
     print(f"Only Charlie: {Charlie.difference(Alice, Bob, Dylan)}")
