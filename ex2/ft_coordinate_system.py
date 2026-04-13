@@ -23,28 +23,33 @@ def get_player_pos() -> tuple:
 'x,y,z': ")
             values: list = inputs.split(",")
             if (len(values) != 3):
-                print ("Invalid syntax")
+                print("Invalid syntax")
                 continue
-            result:list = []
+            result: list = []
             for elm in values:
                 try:
                     elm = float(elm.strip())
                     result.append(elm)
                 except ValueError:
-                    print (f"Error on parameter '{elm}': could not \
+                    print(f"Error on parameter '{elm}': could not \
 convert string to float: '{elm}'")
             if (len(result) == 3):
-                x , y , z  = result
+                x, y, z = result
                 return x, y, z
-        except :
-            print ("Invalid syntax")
+        except Exception:
+            print("Invalid syntax")
+        except KeyboardInterrupt:
+            return 0.0, 0.0, 0.0
 
 
 def ft_coordinate_system() -> None:
 
     def distance(p1: tuple, p2: tuple) -> float:
-        return math.sqrt((p2[0] - p1[0])**2 + (p2[1] - p1[1])**2\
-+ (p1[2] - p2[2])**2)
+        return math.sqrt(
+            (p2[0] - p1[0])**2 +
+            (p2[1] - p1[1])**2 +
+            (p1[2] - p2[2])**2
+        )
 
     center: tuple = (0.0, 0.0, 0.0)
     print("=== Game Coordinate System ===\n")
