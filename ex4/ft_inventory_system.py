@@ -68,7 +68,7 @@ def ft_inventory_system(args: list) -> None:
                 if (not found_it):
                     print(f"Item least abundant: {k} with quantity {minimum}")
                     found_it = 1
-    inventory.update({"magic_item" : 1})
+    inventory.update({"magic_item": 1})
     print(f"Updated inventory: {inventory}")
 
 

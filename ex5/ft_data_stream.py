@@ -18,9 +18,11 @@ PLAYERS: list = ['bob', 'alice', 'dylan', 'charlie']
 ACTION: list = ['run', 'eat', 'sleep', 'grab', 'move',
                 'climb', 'swim', 'release']
 
+
 def gen_event() -> typing.Generator:
     while True:
         yield random.choice(PLAYERS), random.choice(ACTION)
+
 
 def consume_event(listes: list) -> typing.Generator:
 
@@ -37,7 +39,7 @@ def consume_event(listes: list) -> typing.Generator:
     while (len(listes) > 0):
         choix: tuple = random.choice(listes)
         listes = del_elm(listes, choix)
-        yield choix
+        yield choix, listes
 
 
 def ft_data_stream() -> None:
@@ -51,9 +53,10 @@ def ft_data_stream() -> None:
         event_lst.append(next(evnt_gen))
     print(f"Built list of 10 events: {event_lst}")
     consomable: typing.Generator = consume_event(event_lst)
-    for event in consomable:
+    for event, remain in consomable:
         print(f"Got event from list: {event}")
-        print(f"Remains in list: {consomable}")
+        print(f"Remains in list: {remain}")
+
 
 if __name__ == "__main__":
     ft_data_stream()
